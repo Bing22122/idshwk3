@@ -27,5 +27,3 @@ event zeek_done()
      }
   }
  }
-
-}
