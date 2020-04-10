@@ -6,7 +6,8 @@ event http_header(c:connection,is_orig:bool,name:string,value:string)
        local user_agent = to_lower(c$http$user_agent);
        if(c$id$orig_h in x)
        {
-         add x[c$id$orig_h][user_agent];
+        if(!(user_agent in x[c$id$orig_h]))
+         {add x[c$id$orig_h][user_agent];}
        }
        else
        {
@@ -25,4 +26,6 @@ event zeek_done()
        print fmt("%s is a proxyaddr",a);
      }
   }
+ }
+
 }
